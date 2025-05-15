@@ -13,6 +13,7 @@ public class Sailor : MonoBehaviour
     [Header("Task")]
     public float tasksDoneSinceRest = 0f; // Compteur de la tâche effectuée depuis le dernier repos
     public float restDuration = 10f; // Durée de repos
+    public int tasksBeforeRest = 5; // Nombre de tâches avant d'être fatigué
 
     private float restTimer = 0f;
 
@@ -30,7 +31,7 @@ public class Sailor : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0) && IsClicked())
                 {
-                    if (tasksDoneSinceRest >= 2)
+                    if (tasksDoneSinceRest >= tasksBeforeRest)
                     {
                         ChangeState(State.Tired);
                     }
